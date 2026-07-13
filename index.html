@@ -18,21 +18,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* --- Animated Gradient Background --- */
+        /* --- Super Fast Animated Gradient Background --- */
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #ff007f, #7000ff, #00d2ff, #3a0088);
+            /* Added more colors for a dynamic, fast-changing look */
+            background: linear-gradient(-45deg, #ff007f, #7000ff, #00d2ff, #00ffaa, #ff007f, #7000ff);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            /* Reduced time to 2.5s for a rapid effect */
+            animation: gradientBG 2.5s ease infinite; 
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
+            padding-top: 80px; /* Adds space so the hero content isn't hidden under the fixed navbar */
         }
 
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* --- Professional Navbar --- */
+        .glass-navbar {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            color: #fff !important;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: white;
+            color: black;
         }
 
         /* --- Custom Typography & Elements --- */
@@ -44,13 +75,13 @@
         }
 
         .glass-panel {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
 
         .btn-instagram {
@@ -72,7 +103,7 @@
 
         /* --- Instagram Video Embed Boxes --- */
         .video-box {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 15px;
             padding: 10px;
             transition: transform 0.3s ease;
@@ -80,7 +111,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
         }
 
         .video-box:hover {
@@ -99,18 +130,35 @@
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 15px;
-            color: #00d2ff;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
 
+    <!-- Professional Navbar (Heading Bar) -->
+    <nav class="navbar navbar-expand-lg glass-navbar fixed-top">
+        <div class="container">
+            <!-- Your Brand Name -->
+            <a class="navbar-brand" href="#">
+                <i class="fa-brands fa-apple me-2"></i> iOS Deals
+            </a>
+            
+            <!-- Quick Contact / Follow Button -->
+            <div class="d-flex">
+                <a href="https://instagram.com/YOUR_USERNAME_HERE" target="_blank" class="btn nav-btn rounded-pill px-4 fw-bold">
+                    <i class="fa-brands fa-instagram me-1"></i> Visit Shop
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <div class="container text-center pt-5 pb-5 mt-4">
-        <div class="glass-panel" data-aos="zoom-in" data-aos-duration="1000">
-            <i class="fa-brands fa-apple feature-icon text-white"></i>
+    <div class="container text-center pt-5 pb-5 mt-3">
+        <div class="glass-panel" data-aos="zoom-in" data-aos-duration="800">
             <h1 class="display-3 mb-3">Premium iPhones.<br>Unbeatable Prices.</h1>
-            <p class="lead mb-4">Your trusted source for the cheapest iPhones online. 100% Authentic. Fast Delivery.</p>
+            <p class="lead mb-4 fw-bold">Your trusted source for the cheapest iPhones online. 100% Authentic. Fast Delivery.</p>
             <a href="https://instagram.com/YOUR_USERNAME_HERE" target="_blank" class="btn btn-instagram">
                 <i class="fa-brands fa-instagram me-2"></i> Follow & Buy on Instagram
             </a>
@@ -146,7 +194,7 @@
 
     <!-- Video & Delivery Proofs Grid -->
     <div class="container pb-5">
-        <h2 class="text-center mb-5 fw-bold" data-aos="fade-down">📦 Delivery Proofs & Stock Videos</h2>
+        <h2 class="text-center mb-5 fw-bold" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.5);" data-aos="fade-down">📦 Delivery Proofs & Stock Videos</h2>
         
         <div class="row g-4">
             
@@ -154,7 +202,6 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="video-box">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
-                    <!-- To get this code: Go to your Instagram post on a computer -> Click the 3 dots (...) -> Click 'Embed' -> Copy Code -->
                     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/PLACEHOLDER_LINK_1/" data-instgrm-version="14"></blockquote>
                 </div>
             </div>
@@ -175,13 +222,11 @@
                 </div>
             </div>
 
-            <!-- You can copy and paste the above "VIDEO BOX" block to add as many videos as you want -->
-
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="text-center pb-4 pt-4" style="background: rgba(0,0,0,0.5);">
+    <footer class="text-center pb-4 pt-4" style="background: rgba(0,0,0,0.6);">
         <p class="mb-0 text-white-50">© 2026 Your Brand Name. All rights reserved.</p>
         <p class="small text-white-50">Not affiliated with Apple Inc.</p>
     </footer>
@@ -192,14 +237,14 @@
     <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <!-- Instagram Embed Script (Required to make the boxes render as actual videos) -->
+    <!-- Instagram Embed Script -->
     <script async src="//www.instagram.com/embed.js"></script>
 
     <!-- Initialize Animations -->
     <script>
         AOS.init({
-            once: true, // Animations happen only once when scrolling down
-            offset: 100 // Offset (in px) from the original trigger point
+            once: true, 
+            offset: 100 
         });
     </script>
 </body>
