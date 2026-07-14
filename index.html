@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium iPhones | Verified Deliveries</title>
     
-    <!-- Custom Modern AI-Type Fonts -->
+    <!-- Futuristic AI Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Modern Dark AI Theme CSS */
+        /* Modern Robotic / Cyberpunk Theme CSS */
         :root {
-            --bg-color: #09090b;
-            --surface-color: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --text-main: #ffffff;
-            --text-muted: #a1a1aa;
-            --glow-primary: #8b5cf6;
-            --glow-secondary: #3b82f6;
+            --bg-base: #030305;
+            --surface: rgba(15, 15, 20, 0.7);
+            --border-tech: rgba(59, 130, 246, 0.4);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --neon-primary: #8b5cf6;
+            --neon-secondary: #06b6d4;
         }
 
         * {
@@ -29,69 +29,122 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-base);
             color: var(--text-main);
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
+            /* Cyberpunk Grid Background */
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.15), transparent 25%);
+                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+        }
+
+        /* Animated Floating Phones Background */
+        .bg-animations {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-phone {
+            position: absolute;
+            width: 70px; height: 140px;
+            border: 2px solid rgba(139, 92, 246, 0.15);
+            border-radius: 12px;
+            box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.1);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+            backdrop-filter: blur(2px);
+        }
+
+        .floating-phone::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 50%;
+            transform: translateX(-50%);
+            width: 25px; height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        /* Individual phone animation properties */
+        .p1 { left: 10%; bottom: -160px; animation: floatUp 15s linear infinite; }
+        .p2 { left: 40%; bottom: -160px; animation: floatUp 25s linear infinite 5s; transform: scale(0.8); }
+        .p3 { left: 75%; bottom: -160px; animation: floatUp 20s linear infinite 2s; transform: scale(1.2); }
+        .p4 { left: 90%; bottom: -160px; animation: floatUp 22s linear infinite 8s; opacity: 0.5; }
+        .p5 { left: 25%; bottom: -160px; animation: floatUp 18s linear infinite 12s; transform: rotate(15deg); }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
         }
 
         /* Typography */
         h1, h2, h3 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, var(--neon-primary) 0%, var(--neon-secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
         }
 
         /* Header / Hero Section */
         header {
             text-align: center;
-            padding: 100px 20px 60px;
+            padding: 120px 20px 80px;
             position: relative;
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 4rem;
+            font-weight: 900;
             margin-bottom: 20px;
-            letter-spacing: -1px;
+            letter-spacing: 2px;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 40px;
             line-height: 1.6;
         }
 
-        /* Call to Action Button */
+        /* Futuristic Call to Action Button */
         .cta-btn {
             display: inline-block;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: #fff;
             text-decoration: none;
-            background: linear-gradient(135deg, var(--glow-primary), var(--glow-secondary));
-            border-radius: 50px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--neon-primary);
+            box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
+            /* Sci-Fi cut corners */
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-            font-family: 'Space Grotesk', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+            position: relative;
         }
 
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+            background: rgba(139, 92, 246, 0.3);
+            box-shadow: inset 0 0 25px rgba(139, 92, 246, 0.6), 0 0 35px rgba(6, 182, 212, 0.4);
+            transform: translateY(-2px);
         }
 
         /* Container & Grid for Delivery Proofs */
@@ -103,56 +156,103 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            letter-spacing: 3px;
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
             padding-bottom: 100px;
         }
 
-        /* Video / Instagram Boxes */
+        /* Robotic Edge Video Boxes */
         .video-card {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            background: var(--surface);
+            border: 1px solid var(--border-tech);
+            /* Sci-Fi Chamfered Edges */
+            clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+            padding: 25px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+        }
+
+        /* Tech Accents on Corners */
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 30px;
+            width: 40px; height: 2px;
+            background: var(--neon-secondary);
+            box-shadow: 0 0 10px var(--neon-secondary);
+        }
+
+        .video-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 30px;
+            width: 40px; height: 2px;
+            background: var(--neon-primary);
+            box-shadow: 0 0 10px var(--neon-primary);
         }
 
         .video-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(139, 92, 246, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background: rgba(25, 25, 35, 0.9);
+            border-color: var(--neon-secondary);
         }
 
         .video-title {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #e4e4e7;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-align: center;
+            width: 100%;
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
         }
 
         /* Portrait Aspect Ratio Container for IG Reels */
         .ig-embed-container {
             width: 100%;
-            /* 9:16 aspect ratio for portrait videos */
+            /* 9:16 aspect ratio strictly enforced */
             aspect-ratio: 9 / 16; 
             background: #000;
-            border-radius: 16px;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+            overflow: hidden;
+        }
+
+        /* Scanner line effect inside the video box before video loads */
+        .ig-embed-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+            animation: scanline 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
         }
 
         /* Target the instagram iframe directly */
@@ -160,63 +260,77 @@
             width: 100% !important;
             height: 100% !important;
             border: none;
+            z-index: 2;
+            position: relative;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
-            border-top: 1px solid var(--border-color);
+            padding: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
             color: var(--text-muted);
-            margin-top: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.1rem; }
             .video-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Background Phone Animations -->
+    <div class="bg-animations">
+        <div class="floating-phone p1"></div>
+        <div class="floating-phone p2"></div>
+        <div class="floating-phone p3"></div>
+        <div class="floating-phone p4"></div>
+        <div class="floating-phone p5"></div>
+    </div>
+
     <!-- Hero Section -->
     <header>
-        <h1 class="hero-title">Cheapest iPhones.<br><span class="gradient-text">Guaranteed Delivery.</span></h1>
-        <p class="hero-subtitle">100% Authentic iPhones at the lowest prices. Browse our latest deals and check out our verified delivery proofs straight from our customers.</p>
-        <a href="https://instagram.com/YOUR_USERNAME" target="_blank" class="cta-btn">DM on Instagram to Buy</a>
+        <h1 class="hero-title">Cheapest iPhones<br><span class="gradient-text">Verified Deliveries</span></h1>
+        <p class="hero-subtitle">SYSTEM.STATUS: [ONLINE] // 100% Authentic hardware. Access the lowest prices on the grid. Verify our successful drops below.</p>
+        <a href="https://instagram.com/YOUR_USERNAME" target="_blank" class="cta-btn">INITIALIZE ORDER // DM US</a>
     </header>
 
     <!-- Delivery Proofs Section -->
     <div class="container">
-        <h2 class="section-title">Delivery <span class="gradient-text">Proofs</span></h2>
+        <h2 class="section-title">DELIVERY <span class="gradient-text">DATA LOGS</span></h2>
         
         <div class="video-grid">
             
             <!-- Video Box 1 -->
             <div class="video-card">
-                <div class="video-title">iPhone 14 Pro - Delivered</div>
+                <div class="video-title">LOG #01 // iPHONE 14 PRO</div>
                 <div class="ig-embed-container">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
-                    <p style="color: #555; text-align: center; font-size: 0.9rem;">Paste IG Embed Code Here</p>
+                    <p style="color: #475569; text-align: center; font-size: 0.9rem; font-family: 'Rajdhani';">AWAITING IG EMBED CODE...</p>
                 </div>
             </div>
 
             <!-- Video Box 2 -->
             <div class="video-card">
-                <div class="video-title">iPhone 13 - Happy Customer</div>
+                <div class="video-title">LOG #02 // iPHONE 13</div>
                 <div class="ig-embed-container">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
-                    <p style="color: #555; text-align: center; font-size: 0.9rem;">Paste IG Embed Code Here</p>
+                    <p style="color: #475569; text-align: center; font-size: 0.9rem; font-family: 'Rajdhani';">AWAITING IG EMBED CODE...</p>
                 </div>
             </div>
 
             <!-- Video Box 3 -->
             <div class="video-card">
-                <div class="video-title">iPhone 15 Pro Max - Unboxing</div>
+                <div class="video-title">LOG #03 // iPHONE 15 PM</div>
                 <div class="ig-embed-container">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
-                    <p style="color: #555; text-align: center; font-size: 0.9rem;">Paste IG Embed Code Here</p>
+                    <p style="color: #475569; text-align: center; font-size: 0.9rem; font-family: 'Rajdhani';">AWAITING IG EMBED CODE...</p>
                 </div>
             </div>
 
@@ -225,10 +339,10 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Your Brand Name. All rights reserved.</p>
+        <p>SECURE SERVERS &copy; 2026. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <!-- Optional script to handle Instagram embeds properly -->
+    <!-- Instagram Embed Script -->
     <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
