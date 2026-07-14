@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium iPhones | Verified Deliveries</title>
+    <title>Premium Smartphones | Verified Deliveries</title>
     
     <!-- Futuristic AI Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,78 @@
             background-position: center center;
         }
 
+        /* --- NEW: Navigation Bar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(3, 3, 5, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-tech);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tech scanner line under navbar */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-secondary), transparent);
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+
+        .nav-logos {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        /* Logo Styling */
+        .nav-logos svg {
+            height: 28px;
+            fill: var(--text-muted);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-logos svg:hover {
+            fill: var(--text-main);
+            filter: drop-shadow(0 0 8px var(--neon-secondary));
+            transform: scale(1.1);
+        }
+
+        .samsung-text {
+            font-family: Arial, sans-serif;
+            font-weight: 900;
+            font-size: 55px;
+            letter-spacing: -2px;
+        }
+
         /* Animated Floating Phones Background */
         .bg-animations {
             position: fixed;
@@ -71,7 +143,6 @@
             border-radius: 4px;
         }
 
-        /* Individual phone animation properties */
         .p1 { left: 10%; bottom: -160px; animation: floatUp 15s linear infinite; }
         .p2 { left: 40%; bottom: -160px; animation: floatUp 25s linear infinite 5s; transform: scale(0.8); }
         .p3 { left: 75%; bottom: -160px; animation: floatUp 20s linear infinite 2s; transform: scale(1.2); }
@@ -102,7 +173,8 @@
         /* Header / Hero Section */
         header {
             text-align: center;
-            padding: 120px 20px 80px;
+            /* Pushed down to account for the fixed navbar */
+            padding: 160px 20px 80px;
             position: relative;
         }
 
@@ -133,7 +205,6 @@
             background: rgba(139, 92, 246, 0.1);
             border: 1px solid var(--neon-primary);
             box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
-            /* Sci-Fi cut corners */
             clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
             transition: all 0.3s ease;
             font-family: 'Orbitron', sans-serif;
@@ -172,7 +243,6 @@
         .video-card {
             background: var(--surface);
             border: 1px solid var(--border-tech);
-            /* Sci-Fi Chamfered Edges */
             clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
             padding: 25px;
             backdrop-filter: blur(12px);
@@ -184,7 +254,6 @@
             position: relative;
         }
 
-        /* Tech Accents on Corners */
         .video-card::before {
             content: '';
             position: absolute;
@@ -225,7 +294,6 @@
         /* Portrait Aspect Ratio Container for IG Reels */
         .ig-embed-container {
             width: 100%;
-            /* 9:16 aspect ratio strictly enforced */
             aspect-ratio: 9 / 16; 
             background: #000;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -236,7 +304,6 @@
             overflow: hidden;
         }
 
-        /* Scanner line effect inside the video box before video loads */
         .ig-embed-container::after {
             content: '';
             position: absolute;
@@ -255,7 +322,6 @@
             100% { top: 100%; opacity: 0; }
         }
 
-        /* Target the instagram iframe directly */
         .ig-embed-container iframe {
             width: 100% !important;
             height: 100% !important;
@@ -277,13 +343,31 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
             .hero-title { font-size: 2.5rem; }
             .hero-subtitle { font-size: 1.1rem; }
             .video-grid { grid-template-columns: 1fr; }
+            .nav-brand { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">DEVICE.HUB</div>
+        <div class="nav-logos">
+            <!-- Apple Logo -->
+            <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+            </svg>
+            <!-- Samsung Logo -->
+            <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" style="height: 35px; transform: translateY(2px);">
+                <ellipse cx="150" cy="50" rx="140" ry="45" fill="none" stroke="currentColor" stroke-width="8" transform="rotate(-10 150 50)"/>
+                <text x="150" y="65" text-anchor="middle" class="samsung-text" fill="currentColor" transform="rotate(-10 150 50)">SAMSUNG</text>
+            </svg>
+        </div>
+    </nav>
 
     <!-- Background Phone Animations -->
     <div class="bg-animations">
@@ -296,7 +380,7 @@
 
     <!-- Hero Section -->
     <header>
-        <h1 class="hero-title">Cheapest iPhones<br><span class="gradient-text">Verified Deliveries</span></h1>
+        <h1 class="hero-title">Cheapest Phones<br><span class="gradient-text">Verified Deliveries</span></h1>
         <p class="hero-subtitle">SYSTEM.STATUS: [ONLINE] // 100% Authentic hardware. Access the lowest prices on the grid. Verify our successful drops below.</p>
         <a href="https://instagram.com/YOUR_USERNAME" target="_blank" class="cta-btn">INITIALIZE ORDER // DM US</a>
     </header>
@@ -318,7 +402,7 @@
 
             <!-- Video Box 2 -->
             <div class="video-card">
-                <div class="video-title">LOG #02 // iPHONE 13</div>
+                <div class="video-title">LOG #02 // SAMSUNG S23</div>
                 <div class="ig-embed-container">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
                     <p style="color: #475569; text-align: center; font-size: 0.9rem; font-family: 'Rajdhani';">AWAITING IG EMBED CODE...</p>
@@ -339,7 +423,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>SECURE SERVERS &copy; 2026. ALL RIGHTS RESERVED.</p>
+        <p>DEVICE.HUB &copy; 2026. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <!-- Instagram Embed Script -->
