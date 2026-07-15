@@ -85,6 +85,49 @@
             text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
         }
 
+        /* Animated Floating Phones Background */
+        .bg-animations {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-phone {
+            position: absolute;
+            width: 70px; height: 140px;
+            border: 2px solid rgba(139, 92, 246, 0.15);
+            border-radius: 12px;
+            box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.1);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+            backdrop-filter: blur(2px);
+        }
+
+        .floating-phone::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 50%;
+            transform: translateX(-50%);
+            width: 25px; height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .p1 { left: 10%; bottom: -160px; animation: floatUp 15s linear infinite; }
+        .p2 { left: 40%; bottom: -160px; animation: floatUp 25s linear infinite 5s; transform: scale(0.8); }
+        .p3 { left: 75%; bottom: -160px; animation: floatUp 20s linear infinite 2s; transform: scale(1.2); }
+        .p4 { left: 90%; bottom: -160px; animation: floatUp 22s linear infinite 8s; opacity: 0.5; }
+        .p5 { left: 25%; bottom: -160px; animation: floatUp 18s linear infinite 12s; transform: rotate(15deg); }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
         /* Typography */
         h2 {
             font-family: 'Orbitron', sans-serif;
@@ -99,21 +142,11 @@
             text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
         }
 
-        /* Header Section */
-        header {
-            text-align: center;
-            padding: 160px 20px 80px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         /* Container & Grid for Delivery Proofs */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 120px 20px 0px; /* Added 120px top padding to account for fixed navbar and remove gap */
         }
 
         .section-title {
@@ -224,6 +257,7 @@
             .navbar { padding: 0 20px; }
             .video-grid { grid-template-columns: 1fr; }
             .nav-brand { font-size: 1.2rem; }
+            .container { padding-top: 100px; } /* Slightly less padding on mobile */
         }
     </style>
 </head>
@@ -234,10 +268,14 @@
         <div class="nav-brand">ANAND PANDEY</div>
     </nav>
 
-    <!-- Header Section -->
-    <header>
-        <!-- The header remains to maintain top spacing, but the logo has been removed -->
-    </header>
+    <!-- Background Phone Animations -->
+    <div class="bg-animations">
+        <div class="floating-phone p1"></div>
+        <div class="floating-phone p2"></div>
+        <div class="floating-phone p3"></div>
+        <div class="floating-phone p4"></div>
+        <div class="floating-phone p5"></div>
+    </div>
 
     <!-- Delivery Proofs Section -->
     <div class="container">
