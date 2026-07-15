@@ -176,6 +176,11 @@
             flex-direction: column;
             align-items: center;
             position: relative;
+        
+                padding: 15px 5px; /* Reduced side padding so the video isn't squeezed */
+                clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+            
+
         }
 
         .video-card::before {
@@ -259,6 +264,20 @@
             .nav-brand { font-size: 1.2rem; }
             .container { padding-top: 100px; } /* Slightly less padding on mobile */
         }
+                /* Strict Overrides to force IG Embed to fit and align perfectly */
+        .ig-embed-container .instagram-media,
+        .ig-embed-container blockquote,
+        .ig-embed-container iframe {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            min-width: 100% !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            border: none !important;
+            background: transparent !important;
+        }
+
     </style>
 </head>
 <body>
