@@ -53,7 +53,7 @@
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-tech);
             display: flex;
-            justify-content: center; /* Centered brand name */
+            justify-content: center;
             align-items: center;
             padding: 0 40px;
             z-index: 1000;
@@ -85,51 +85,8 @@
             text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
         }
 
-        /* Animated Floating Phones Background */
-        .bg-animations {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-phone {
-            position: absolute;
-            width: 70px; height: 140px;
-            border: 2px solid rgba(139, 92, 246, 0.15);
-            border-radius: 12px;
-            box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.1);
-            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
-            backdrop-filter: blur(2px);
-        }
-
-        .floating-phone::before {
-            content: '';
-            position: absolute;
-            top: 8px; left: 50%;
-            transform: translateX(-50%);
-            width: 25px; height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-        }
-
-        .p1 { left: 10%; bottom: -160px; animation: floatUp 15s linear infinite; }
-        .p2 { left: 40%; bottom: -160px; animation: floatUp 25s linear infinite 5s; transform: scale(0.8); }
-        .p3 { left: 75%; bottom: -160px; animation: floatUp 20s linear infinite 2s; transform: scale(1.2); }
-        .p4 { left: 90%; bottom: -160px; animation: floatUp 22s linear infinite 8s; opacity: 0.5; }
-        .p5 { left: 25%; bottom: -160px; animation: floatUp 18s linear infinite 12s; transform: rotate(15deg); }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-        }
-
         /* Typography */
-        h1, h2, h3 {
+        h2 {
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
         }
@@ -142,7 +99,7 @@
             text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
         }
 
-        /* Header / Hero Section */
+        /* Header Section */
         header {
             text-align: center;
             padding: 160px 20px 80px;
@@ -152,10 +109,8 @@
             align-items: center;
         }
 
-        /* Hero Center Logo */
         .hero-logo {
             width: 65px;
-            margin-bottom: 25px;
             fill: var(--text-main);
             animation: pulseLogo 3s infinite alternate;
         }
@@ -163,46 +118,6 @@
         @keyframes pulseLogo {
             0% { filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.6)); transform: scale(1); }
             100% { filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.8)); transform: scale(1.05); }
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        /* Futuristic Call to Action Button */
-        .cta-btn {
-            display: inline-block;
-            padding: 18px 45px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid var(--neon-primary);
-            box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
-            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
-            transition: all 0.3s ease;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 2px;
-            position: relative;
-        }
-
-        .cta-btn:hover {
-            background: rgba(139, 92, 246, 0.3);
-            box-shadow: inset 0 0 25px rgba(139, 92, 246, 0.6), 0 0 35px rgba(6, 182, 212, 0.4);
-            transform: translateY(-2px);
         }
 
         /* Container & Grid for Delivery Proofs */
@@ -265,19 +180,6 @@
             border-color: var(--neon-secondary);
         }
 
-        .video-title {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-            text-align: center;
-            width: 100%;
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-        }
-
         /* Portrait Aspect Ratio Container for IG Reels */
         .ig-embed-container {
             width: 100%;
@@ -331,8 +233,6 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar { padding: 0 20px; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.1rem; }
             .video-grid { grid-template-columns: 1fr; }
             .nav-brand { font-size: 1.2rem; }
         }
@@ -345,21 +245,11 @@
         <div class="nav-brand">ANAND PANDEY</div>
     </nav>
 
-    <!-- Background Phone Animations -->
-    <div class="bg-animations">
-        <div class="floating-phone p1"></div>
-        <div class="floating-phone p2"></div>
-        <div class="floating-phone p3"></div>
-        <div class="floating-phone p4"></div>
-        <div class="floating-phone p5"></div>
-    </div>
-
-    <!-- Hero Section -->
+    <!-- Header Section -->
     <header>
-        <!-- Apple Logo above the Hero Title -->
-        
-
-        
+        <svg class="hero-logo" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+        </svg>
     </header>
 
     <!-- Delivery Proofs Section -->
@@ -370,7 +260,6 @@
             
             <!-- Video Box 1 -->
             <div class="video-card">
-                
                 <div class="ig-embed-container">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
                     <p style="color: #475569; text-align: center; font-size: 0.9rem; font-family: 'Rajdhani';">AWAITING IG EMBED CODE...</p>
@@ -379,7 +268,6 @@
 
             <!-- Video Box 2 -->
             <div class="video-card">
-                
                 <div class="ig-embed-container">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
                     <p style="color: #475569; text-align: center; font-size: 0.9rem; font-family: 'Rajdhani';">AWAITING IG EMBED CODE...</p>
@@ -388,7 +276,6 @@
 
             <!-- Video Box 3 -->
             <div class="video-card">
-                
                 <div class="ig-embed-container">
                     <!-- PASTE YOUR INSTAGRAM EMBED CODE HERE -->
                     <p style="color: #475569; text-align: center; font-size: 0.9rem; font-family: 'Rajdhani';">AWAITING IG EMBED CODE...</p>
